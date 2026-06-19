@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Noto Sans SC', system-ui, sans-serif;
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1306 0%, #2e220c 50%, #1a1306 100%);
+  color: #f0e6d2;
+  overflow: hidden;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(46, 34, 12, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 133, 74, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 133, 74, 0.8);
+}
+
+/* 通用组件样式 */
+@layer components {
+  .game-panel {
+    @apply bg-ancient-800/60 backdrop-blur-sm border border-ancient-600/40 rounded-lg p-4;
+  }
+
+  .game-button {
+    @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+    @apply bg-ancient-600 hover:bg-ancient-500 text-ancient-50;
+    @apply border border-ancient-500/50 hover:border-royal-400/50;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .game-button-primary {
+    @apply bg-royal-600 hover:bg-royal-500 text-royal-50;
+    @apply border border-royal-400/50 hover:border-royal-300/50;
+  }
+
+  .game-button-danger {
+    @apply bg-war-600 hover:bg-war-500 text-war-50;
+    @apply border border-war-400/50 hover:border-war-300/50;
+  }
+
+  .resource-badge {
+    @apply flex items-center gap-1.5 px-3 py-1.5 rounded-md;
+    @apply bg-ancient-800/80 border border-ancient-600/40;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-md transition-all duration-200;
+    @apply text-ancient-200 hover:bg-ancient-700/50 hover:text-royal-300;
+    @apply cursor-pointer;
+  }
+
+  .nav-item-active {
+    @apply bg-ancient-700/70 text-royal-300 border-l-4 border-royal-400;
+  }
+}
+
+/* 进度条动画 */
+.progress-bar-fill {
+  transition: width 0.3s ease-out;
+}
+
+/* 数字动画 */
+.number-pop {
+  animation: numberPop 0.3s ease-out;
+}
+
+@keyframes numberPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); color: #ffc94a; }
+  100% { transform: scale(1); }
+}
