@@ -27,21 +27,24 @@ export function Sidebar() {
 
   return (
     <aside className="w-20 md:w-56 bg-ancient-900/80 backdrop-blur-md border-r border-ancient-600/40 flex flex-col py-4 overflow-y-auto">
-      <nav className="flex flex-col gap-1 px-2">
+      <nav className="flex flex-col gap-1 px-2" role="navigation" aria-label="主导航">
         {PANELS.map((panel) => {
           const info = PANEL_INFO[panel];
           const isActive = currentPanel === panel;
           return (
-            <motion.div
+            <motion.button
               key={panel}
+              type="button"
               whileHover={{ x: 4 }}
               whileTap={{ scale: 0.95 }}
-              className={`nav-item ${isActive ? 'nav-item-active' : ''}`}
+              className={`nav-item w-full text-left ${isActive ? 'nav-item-active' : ''}`}
               onClick={() => setPanel(panel)}
+              aria-label={info.name}
+              aria-current={isActive ? 'page' : undefined}
             >
               <span className="text-xl">{info.icon}</span>
               <span className="hidden md:inline font-medium">{info.name}</span>
-            </motion.div>
+            </motion.button>
           );
         })}
       </nav>

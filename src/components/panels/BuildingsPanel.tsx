@@ -216,6 +216,7 @@ function BuildingCard({
         <button
           className={`game-button text-sm ${isActive ? '' : 'game-button-primary'}`}
           onClick={onToggle}
+          aria-label={isActive ? '暂停生产' : '开始生产'}
         >
           {isActive ? '⏸️' : '▶️'}
         </button>
