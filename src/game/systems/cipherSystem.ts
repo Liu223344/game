@@ -60,8 +60,8 @@ export function generateCipherDocument(difficulty: 'easy' | 'medium' | 'hard' = 
   // 奖励
   const rewards = [
     { type: 'currency' as const, id: 'rebirth_currency', amount: difficulty === 'easy' ? 5 : difficulty === 'medium' ? 15 : 50 },
-    { type: 'tech' as const, id: 'hidden_knowledge', amount: 1 },
-    { type: 'relic' as const, id: 'ancient_tablet', amount: 1 },
+    { type: 'tech' as const, id: 'hiddenKnowledge', amount: 1 },
+    { type: 'relic' as const, id: 'genesisTablet', amount: 1 },
   ];
   const reward = rewards[Math.floor(Math.random() * rewards.length)];
 

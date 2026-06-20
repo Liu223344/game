@@ -159,7 +159,7 @@ function createInitialState(): GameState {
     },
 
     banner: {
-      bgColor: '#8a6630',
+      bgColor: 'brown',
       pattern: 'eagle',
       border: 'simple',
     },
@@ -591,7 +591,6 @@ export const useGameStore = create<GameState & GameStoreActions>((set, get) => (
   tick: (deltaSeconds) =>
     set((state) => ({
       playTime: state.playTime + deltaSeconds,
-      lastSave: Date.now(),
     })),
 
   resetGame: () => set({ ...createInitialState() }),
@@ -610,7 +609,11 @@ export const useGameStore = create<GameState & GameStoreActions>((set, get) => (
         affinity: { ...initial.rulerStyle.affinity, ...((loadedState.rulerStyle as GameState['rulerStyle'])?.affinity || {}) } },
       banner: { ...initial.banner, ...(loadedState.banner || {}) },
       codex: { ...initial.codex, ...(loadedState.codex || {}) },
-      ruler: { ...initial.ruler, ...(loadedState.ruler || {}) },
+      ruler: {
+        ...initial.ruler,
+        ...(loadedState.ruler || {}),
+        skills: { ...initial.ruler.skills, ...((loadedState.ruler as GameState['ruler'])?.skills || {}) },
+      },
       legitimacy: { ...initial.legitimacy, ...(loadedState.legitimacy || {}) },
       season: { ...initial.season, ...(loadedState.season || {}) },
       diplomacy: { ...initial.diplomacy, ...(loadedState.diplomacy || {}) },

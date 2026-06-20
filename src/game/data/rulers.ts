@@ -82,7 +82,7 @@ export const RULER_EQUIPMENT: RulerEquipmentDef[] = [
     description: '铁器时代的王者之冠',
     icon: '👑',
     bonus: { gold: 5, population: 2 },
-    unlockTech: 'iron_working',
+    unlockTech: 'ironWorking',
   },
   {
     id: 'crown_golden',
@@ -91,7 +91,7 @@ export const RULER_EQUIPMENT: RulerEquipmentDef[] = [
     description: '黄金打造的辉煌帝冠',
     icon: '👑',
     bonus: { gold: 15, knowledge: 5 },
-    unlockTech: 'currency',
+    unlockTech: 'trade',
   },
   // 宝剑
   {
@@ -109,7 +109,7 @@ export const RULER_EQUIPMENT: RulerEquipmentDef[] = [
     description: '锋利无比的精钢剑',
     icon: '⚔️',
     bonus: { metal: 3, food: 2 },
-    unlockTech: 'iron_working',
+    unlockTech: 'ironWorking',
   },
   {
     id: 'weapon_legendary',
@@ -118,7 +118,7 @@ export const RULER_EQUIPMENT: RulerEquipmentDef[] = [
     description: '传说中能号令万军的神剑',
     icon: '⚔️',
     bonus: { metal: 8, gold: 5 },
-    unlockTech: 'steel_making',
+    unlockTech: 'industry',
   },
   // 龙袍
   {
@@ -136,7 +136,7 @@ export const RULER_EQUIPMENT: RulerEquipmentDef[] = [
     description: '华贵的丝绸龙袍',
     icon: '👘',
     bonus: { gold: 3, population: 3 },
-    unlockTech: 'weaving',
+    unlockTech: 'trade',
   },
   {
     id: 'robe_imperial',
@@ -145,7 +145,7 @@ export const RULER_EQUIPMENT: RulerEquipmentDef[] = [
     description: '象征天命的华美帝袍',
     icon: '👘',
     bonus: { gold: 8, knowledge: 3, population: 5 },
-    unlockTech: 'imperial_court',
+    unlockTech: 'writing',
   },
   // 玉玺
   {
@@ -172,7 +172,7 @@ export const RULER_EQUIPMENT: RulerEquipmentDef[] = [
     description: '受命于天的至高玉玺',
     icon: '📜',
     bonus: { gold: 10, knowledge: 10, population: 8 },
-    unlockTech: 'bureaucracy',
+    unlockTech: 'mythology',
   },
 ];
 

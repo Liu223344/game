@@ -145,7 +145,7 @@ function processAutoBuildTroops(): void {
   if (totalTroops >= MIN_TROOP_COUNT) return;
 
   // 寻找已解锁的基础兵种（民兵/步兵）
-  const basicTroopIds = ['militia', 'infantry', 'archer', 'bronzeWarrior'];
+  const basicTroopIds = ['militia', 'ironSoldier', 'archer', 'bronzeWarrior'];
   for (const troopId of basicTroopIds) {
     const def = getTroopDef(troopId);
     if (!def) continue;

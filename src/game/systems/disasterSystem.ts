@@ -91,14 +91,14 @@ export function checkRandomDisaster(deltaSeconds: number): void {
 
   // 根据条件选择灾害类型
   const types: DisasterType[] = ['earthquake', 'famine', 'plague'];
-  if (state.tech.researched.includes('ai_computing')) {
+  if (state.tech.researched.includes('ai')) {
     types.push('ai_rebellion');
   }
   if (state.territories.some((t) => t.owned)) {
     types.push('tsunami');
     types.push('volcano');
   }
-  if (state.tech.researched.includes('astronomy')) {
+  if (state.tech.researched.includes('rocketry')) {
     types.push('meteor');
   }
 

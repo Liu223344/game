@@ -127,12 +127,16 @@ export function useGameLoop() {
 
 // 存档
 export function saveGame() {
-  const state = useGameStore.getState();
-  const saveData = {
-    ...state,
-    lastSave: Date.now(),
-  };
-  localStorage.setItem('idle-empire-save', JSON.stringify(saveData));
+  try {
+    const state = useGameStore.getState();
+    const saveData = {
+      ...state,
+      lastSave: Date.now(),
+    };
+    localStorage.setItem('idle-empire-save', JSON.stringify(saveData));
+  } catch (e) {
+    console.error('存档失败:', e);
+  }
 }
 
 // 读档

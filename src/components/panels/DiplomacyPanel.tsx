@@ -12,6 +12,7 @@ import {
   getDiplomacySummary,
 } from '@/game/systems/diplomacySystem';
 import { motion } from 'framer-motion';
+import { RESOURCE_INFO } from '@/utils/constants';
 import type { ResourceType } from '@/game/types';
 
 const RESOURCES: ResourceType[] = ['food', 'wood', 'stone', 'metal', 'gold', 'knowledge'];
@@ -177,9 +178,10 @@ export function DiplomacyPanel() {
                         className="bg-ancient-900 text-ancient-100 text-sm rounded px-2 py-1"
                         value={giveRes}
                         onChange={(e) => setGiveRes(e.target.value as ResourceType)}
+                        aria-label="付出资源"
                       >
                         {RESOURCES.map((r) => (
-                          <option key={r} value={r}>{r}</option>
+                          <option key={r} value={r}>{RESOURCE_INFO[r]?.name || r}</option>
                         ))}
                       </select>
                       <input
@@ -188,15 +190,17 @@ export function DiplomacyPanel() {
                         value={giveAmt}
                         onChange={(e) => setGiveAmt(Math.max(1, Number(e.target.value)))}
                         min={1}
+                        aria-label="付出数量"
                       />
                       <span className="text-xs text-ancient-400">换取：</span>
                       <select
                         className="bg-ancient-900 text-ancient-100 text-sm rounded px-2 py-1"
                         value={recvRes}
                         onChange={(e) => setRecvRes(e.target.value as ResourceType)}
+                        aria-label="换取资源"
                       >
                         {RESOURCES.map((r) => (
-                          <option key={r} value={r}>{r}</option>
+                          <option key={r} value={r}>{RESOURCE_INFO[r]?.name || r}</option>
                         ))}
                       </select>
                       <span className="text-xs text-green-400">≈ {Math.floor(giveAmt * 0.8)}</span>

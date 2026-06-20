@@ -46,15 +46,19 @@ function App() {
   // 页面关闭时保存
   useEffect(() => {
     const handleBeforeUnload = () => {
-      const state = useGameStore.getState();
-      localStorage.setItem('idle-empire-save', JSON.stringify({ ...state, lastSave: Date.now() }));
+      try {
+        const state = useGameStore.getState();
+        localStorage.setItem('idle-empire-save', JSON.stringify({ ...state, lastSave: Date.now() }));
+      } catch (e) {
+        console.error('关闭存档失败:', e);
+      }
     };
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, []);
 
   return (
-    <div className="h-screen flex flex-col">
+    <div className="h-dvh flex flex-col">
       <TopBar />
       <div className="flex-1 flex overflow-hidden">
         <Sidebar />
