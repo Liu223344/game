@@ -239,7 +239,7 @@ function WonderCard({
           <span className="text-3xl grayscale">🔒</span>
           <div className="flex-1">
             <div className="font-semibold text-ancient-300">{wonder.name}</div>
-            <div className="text-xs text-ancient-500">需要科技: {techName}</div>
+            <div className="text-xs text-ancient-400">需要科技: {techName}</div>
           </div>
         </div>
       </div>
@@ -338,7 +338,7 @@ function WonderCard({
                 {formatNumber(amount as number)}
               </span>
             ))}
-            <span className="text-ancient-500">⏱ {formatTime(wonder.buildTime)}</span>
+            <span className="text-ancient-400">⏱ {formatTime(wonder.buildTime)}</span>
           </div>
           <motion.button
             className="game-button game-button-primary w-full text-sm"

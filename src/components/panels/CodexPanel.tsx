@@ -253,7 +253,7 @@ function CodexGrid<T extends { id: string }>({
                 <span className="text-3xl grayscale">❓</span>
                 <div>
                   <div className="font-semibold text-ancient-400">未发现</div>
-                  <div className="text-xs text-ancient-500">
+                  <div className="text-xs text-ancient-400">
                     {getLabel(item).replace(/./g, '?')}
                   </div>
                 </div>
@@ -282,7 +282,7 @@ function TroopInfo({ troop }: { troop: TroopDef }) {
               </span>
             )}
           </div>
-          <div className="text-xs text-ancient-500 mt-0.5">
+          <div className="text-xs text-ancient-400 mt-0.5">
             {TROOP_CLASS_NAMES[troop.class] || troop.class}
             {troop.isLegendary && <span className="ml-1 text-yellow-400">★传奇</span>}
             {troop.isSuperTroop && <span className="ml-1 text-pink-400">★超级</span>}
@@ -292,15 +292,15 @@ function TroopInfo({ troop }: { troop: TroopDef }) {
       <p className="text-xs text-ancient-400 mb-2">{troop.description}</p>
       <div className="grid grid-cols-3 gap-2 text-center text-xs">
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">攻击</div>
+          <div className="text-ancient-400">攻击</div>
           <div className="text-red-400 font-mono">{formatNumber(troop.attack)}</div>
         </div>
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">防御</div>
+          <div className="text-ancient-400">防御</div>
           <div className="text-blue-400 font-mono">{formatNumber(troop.defense)}</div>
         </div>
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">生命</div>
+          <div className="text-ancient-400">生命</div>
           <div className="text-green-400 font-mono">{formatNumber(troop.hp)}</div>
         </div>
       </div>
@@ -465,7 +465,7 @@ function EventInfo({ event }: { event: GameEvent }) {
       </div>
       <p className="text-xs text-ancient-400 mb-2">{event.description}</p>
       <div className="text-xs text-ancient-400">
-        <span className="text-ancient-500">选项数:</span> {event.choices.length}
+        <span className="text-ancient-400">选项数:</span> {event.choices.length}
       </div>
     </div>
   );

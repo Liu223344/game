@@ -96,7 +96,7 @@ export function DiplomacyPanel() {
                     <div className="text-xs text-ancient-400 mt-1">
                       国力 {Math.floor(empire.power)} · 军队 {empire.armySize} · 领地 {empire.territories}
                     </div>
-                    <div className="text-xs text-ancient-500 mt-0.5">{empire.lastAction}</div>
+                    <div className="text-xs text-ancient-400 mt-0.5">{empire.lastAction}</div>
                   </div>
                   <div className="text-right">
                     <div className={`text-sm font-medium ${relLevel.color}`}>{relLevel.name}</div>

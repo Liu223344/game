@@ -17,7 +17,7 @@ export const YEAR_LENGTH = SEASON_LENGTH * 4; // 480天/年
 // 资源信息
 export const RESOURCE_INFO: Record<ResourceType, { name: string; icon: string; color: string }> = {
   food: { name: '食物', icon: '🌾', color: 'text-green-400' },
-  wood: { name: '木材', icon: '🪵', color: 'text-amber-700' },
+  wood: { name: '木材', icon: '🪵', color: 'text-amber-500' },
   stone: { name: '石头', icon: '🪨', color: 'text-gray-400' },
   metal: { name: '金属', icon: '⚙️', color: 'text-slate-300' },
   gold: { name: '金币', icon: '🪙', color: 'text-yellow-400' },

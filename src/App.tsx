@@ -5,7 +5,7 @@ import { EraTransition } from '@/components/visual/EraTransition';
 import { useGameLoop, loadGame, calculateOfflineProgress } from '@/hooks/useGameLoop';
 import { useUIStore } from '@/store/uiStore';
 import { useGameStore } from '@/store/gameStore';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { formatTime } from '@/utils/format';
 import { RESOURCE_INFO } from '@/utils/constants';
 import type { ResourceState } from '@/game/types';
@@ -13,6 +13,7 @@ import type { ResourceState } from '@/game/types';
 function App() {
   useGameLoop();
   const addNotification = useUIStore((state) => state.addNotification);
+  const [isLoading, setIsLoading] = useState(true);
 
   // 初始化：加载存档和离线收益
   useEffect(() => {
@@ -41,6 +42,7 @@ function App() {
         });
       }
     }
+    setIsLoading(false);
   }, [addNotification]);
 
   // 页面关闭时保存
@@ -56,6 +58,18 @@ function App() {
     window.addEventListener('beforeunload', handleBeforeUnload);
     return () => window.removeEventListener('beforeunload', handleBeforeUnload);
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="h-dvh flex items-center justify-center bg-ancient-900">
+        <div className="text-center space-y-4">
+          <div className="text-5xl animate-pulse">🏰</div>
+          <div className="text-royal-300 font-display text-xl">放置帝国</div>
+          <div className="text-ancient-400 text-sm">加载中...</div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="h-dvh flex flex-col">

@@ -152,7 +152,7 @@ export function SettingsPanel() {
             🗑️ 重置游戏
           </button>
         </div>
-        <p className="text-ancient-500 text-xs mt-3">
+        <p className="text-ancient-400 text-xs mt-3">
           游戏每 {AUTO_SAVE_INTERVAL / 1000} 秒自动存档到本地，也可手动存档。导出存档可备份或迁移。
         </p>
       </div>
@@ -163,7 +163,7 @@ export function SettingsPanel() {
         <p className="text-ancient-300 text-sm">
           放置帝国 - 一款融合28+差异化特色的放置类游戏
         </p>
-        <p className="text-ancient-500 text-xs mt-2">
+        <p className="text-ancient-400 text-xs mt-2">
           灵感来自梅尔沃放置，但全面创新。从远古到未来，建立你的永恒帝国。
         </p>
         <div className="mt-3 grid grid-cols-2 gap-2 text-xs text-ancient-400">

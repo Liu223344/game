@@ -3,11 +3,11 @@ import { useUIStore } from '@/store/uiStore';
 import { EVENTS, getEvent, getAllEvents } from '@/game/data/events';
 import type { GameEvent, EventChoice, ResourceState } from '@/game/types';
 
-// 模块级状态：记录上次触发事件的时间（毫秒时间戳）
-let lastEventTriggerTime = 0;
+// 模块级状态：记录上次触发事件的游戏时间（秒），刷新后从存档恢复
+let lastEventTriggerPlayTime = 0;
 
-// 事件触发间隔（毫秒）：至少间隔 60 秒
-const EVENT_COOLDOWN_MS = 60_000;
+// 事件触发间隔（游戏秒）：至少间隔 60 秒
+const EVENT_COOLDOWN_SECONDS = 60;
 
 // 基础触发概率（每 tick 检查时）
 const BASE_TRIGGER_CHANCE = 0.05;
@@ -29,10 +29,9 @@ const FESTIVAL_DATES: FestivalConfig[] = [
 // 随机触发事件（基于游戏时间和概率）
 export function triggerRandomEvent(): GameEvent | null {
   const state = useGameStore.getState();
-  const now = Date.now();
 
-  // 冷却检查
-  if (now - lastEventTriggerTime < EVENT_COOLDOWN_MS) {
+  // 冷却检查（基于游戏时间，刷新后不会重置）
+  if (state.playTime - lastEventTriggerPlayTime < EVENT_COOLDOWN_SECONDS) {
     return null;
   }
 
@@ -60,8 +59,8 @@ export function triggerRandomEvent(): GameEvent | null {
   // 随机选取一个事件
   const event = availableEvents[Math.floor(Math.random() * availableEvents.length)];
 
-  // 标记触发时间
-  lastEventTriggerTime = now;
+  // 标记触发时间（使用游戏时间，刷新后从存档恢复）
+  lastEventTriggerPlayTime = state.playTime;
 
   // 添加到活跃事件
   useGameStore.setState({

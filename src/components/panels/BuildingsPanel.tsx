@@ -78,7 +78,7 @@ export function BuildingsPanel() {
                     <span className="text-3xl grayscale">🔒</span>
                     <div>
                       <div className="font-semibold text-ancient-300">{building.name}</div>
-                      <div className="text-xs text-ancient-500">需要科技: {building.unlockTech}</div>
+                      <div className="text-xs text-ancient-400">需要科技: {building.unlockTech}</div>
                     </div>
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export function BuildingsPanel() {
                     <span className="text-3xl grayscale">🔒</span>
                     <div>
                       <div className="font-semibold text-ancient-300">{building.name}</div>
-                      <div className="text-xs text-ancient-500">需要科技: {building.unlockTech}</div>
+                      <div className="text-xs text-ancient-400">需要科技: {building.unlockTech}</div>
                     </div>
                   </div>
                 </div>

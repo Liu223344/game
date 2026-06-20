@@ -192,14 +192,14 @@ function TechCard({
       {/* 成本与前置 */}
       <div className="text-xs space-y-1 mb-2">
         <div className="flex items-center gap-2">
-          <span className="text-ancient-500">成本:</span>
+          <span className="text-ancient-400">成本:</span>
           <span className={canAfford ? 'text-blue-400' : 'text-red-400'}>
             📜 {formatNumber(tech.cost)}
           </span>
         </div>
         {tech.prerequisites.length > 0 && (
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-ancient-500">前置:</span>
+            <span className="text-ancient-400">前置:</span>
             {tech.prerequisites.map((p) => {
               const ptech = TECHS[p];
               const done = researchedTechs.includes(p);
@@ -216,7 +216,7 @@ function TechCard({
       {/* 解锁预览 */}
       {unlockPreview.length > 0 && (
         <div className="text-xs mb-3">
-          <span className="text-ancient-500">解锁: </span>
+          <span className="text-ancient-400">解锁: </span>
           <span className="text-royal-300">{unlockPreview.join(' ')}</span>
         </div>
       )}

@@ -213,7 +213,7 @@ export function CombatPanel() {
                           <span className="text-2xl">{def.icon}</span>
                           <div className="flex-1 min-w-0">
                             <div className="text-sm text-ancient-100">{def.name}</div>
-                            <div className="text-xs text-ancient-500">
+                            <div className="text-xs text-ancient-400">
                               可用 {formatNumber(troop.count)} | 派遣战力{' '}
                               {formatNumber((def.attack + def.defense + def.hp) * deployCount)}
                             </div>
@@ -339,19 +339,19 @@ function EnemyCard({ enemy, isSelected, onSelect }: EnemyCardProps) {
       {/* 属性 */}
       <div className="grid grid-cols-4 gap-1 mb-2 text-center text-xs">
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">攻击</div>
+          <div className="text-ancient-400">攻击</div>
           <div className="text-red-400 font-mono">{formatNumber(enemy.attack)}</div>
         </div>
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">防御</div>
+          <div className="text-ancient-400">防御</div>
           <div className="text-blue-400 font-mono">{formatNumber(enemy.defense)}</div>
         </div>
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">生命</div>
+          <div className="text-ancient-400">生命</div>
           <div className="text-green-400 font-mono">{formatNumber(enemy.hp)}</div>
         </div>
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">战力</div>
+          <div className="text-ancient-400">战力</div>
           <div className="text-royal-300 font-mono">{formatNumber(enemyPower)}</div>
         </div>
       </div>
@@ -369,7 +369,7 @@ function EnemyCard({ enemy, isSelected, onSelect }: EnemyCardProps) {
 
       {/* 奖励 */}
       <div className="text-xs">
-        <span className="text-ancient-500">奖励: </span>
+        <span className="text-ancient-400">奖励: </span>
         {enemy.rewards.resources &&
           Object.entries(enemy.rewards.resources).map(([res, amount]) => (
             <span key={res} className="mr-2 text-ancient-300">
@@ -381,7 +381,7 @@ function EnemyCard({ enemy, isSelected, onSelect }: EnemyCardProps) {
       </div>
 
       {enemy.unlockCondition && (
-        <div className="text-xs text-ancient-500 mt-1">解锁条件: {enemy.unlockCondition}</div>
+        <div className="text-xs text-ancient-400 mt-1">解锁条件: {enemy.unlockCondition}</div>
       )}
     </motion.div>
   );

@@ -171,7 +171,7 @@ function TroopCard({ troop, unlocked, state }: TroopCardProps) {
           <span className="text-3xl grayscale">🔒</span>
           <div className="flex-1">
             <div className="font-semibold text-ancient-300">{troop.name}</div>
-            <div className="text-xs text-ancient-500">
+            <div className="text-xs text-ancient-400">
               需要科技: {techName || troop.unlockTech}
             </div>
           </div>
@@ -199,7 +199,7 @@ function TroopCard({ troop, unlocked, state }: TroopCardProps) {
               </span>
             )}
           </div>
-          <div className="text-xs text-ancient-500 mt-0.5">
+          <div className="text-xs text-ancient-400 mt-0.5">
             {TROOP_CLASS_NAMES[troop.class] || troop.class}
             {troop.isLegendary && <span className="ml-1 text-yellow-400">★传奇</span>}
           </div>
@@ -211,15 +211,15 @@ function TroopCard({ troop, unlocked, state }: TroopCardProps) {
       {/* 属性 */}
       <div className="grid grid-cols-3 gap-2 mb-3 text-center text-xs">
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">攻击</div>
+          <div className="text-ancient-400">攻击</div>
           <div className="text-red-400 font-mono">{formatNumber(troop.attack)}</div>
         </div>
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">防御</div>
+          <div className="text-ancient-400">防御</div>
           <div className="text-blue-400 font-mono">{formatNumber(troop.defense)}</div>
         </div>
         <div className="bg-ancient-900/40 rounded px-1 py-1">
-          <div className="text-ancient-500">生命</div>
+          <div className="text-ancient-400">生命</div>
           <div className="text-green-400 font-mono">{formatNumber(troop.hp)}</div>
         </div>
       </div>
@@ -263,7 +263,7 @@ function TroopCard({ troop, unlocked, state }: TroopCardProps) {
             {formatNumber(amount as number)}
           </span>
         ))}
-        <span className="text-ancient-500">⏱ {formatTime(troop.productionTime)}</span>
+        <span className="text-ancient-400">⏱ {formatTime(troop.productionTime)}</span>
       </div>
 
       {/* 数量选择 + 生产按钮 */}

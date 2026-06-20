@@ -41,7 +41,7 @@ export function MultiversePanel() {
           <p className="text-ancient-400 text-sm">
             需要研究"因果律武器"科技才能开启多元宇宙探索
           </p>
-          <p className="text-ancient-500 text-xs mt-2">
+          <p className="text-ancient-400 text-xs mt-2">
             当前已研究 {tech.researched.length} 项科技
           </p>
         </div>

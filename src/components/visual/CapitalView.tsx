@@ -40,7 +40,7 @@ export function CapitalView() {
       <div>
         <div className="text-royal-300 font-display text-lg">{stage.name}</div>
         <div className="text-ancient-400 text-sm">{stage.desc}</div>
-        <div className="text-ancient-500 text-xs mt-1">时代: {era} | 科技: {researchedTechs.length}</div>
+        <div className="text-ancient-400 text-xs mt-1">时代: {era} | 科技: {researchedTechs.length}</div>
       </div>
     </div>
   );

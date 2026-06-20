@@ -108,7 +108,7 @@ export function ChroniclePanel() {
                   <div className="flex items-center gap-2 mb-0.5">
                     <span className="text-xs text-ancient-400">第{entry.year}年</span>
                     <span className={`text-xs ${info.color}`}>{info.icon} {info.name}</span>
-                    <span className="text-xs text-ancient-500">· 第{entry.reign + 1}代</span>
+                    <span className="text-xs text-ancient-400">· 第{entry.reign + 1}代</span>
                   </div>
                   <div className="font-medium text-royal-200 text-sm">{entry.title}</div>
                   <div className="text-sm text-ancient-300">{entry.description}</div>

@@ -21,6 +21,7 @@ export function useGameLoop() {
   const tick = useGameStore((state) => state.tick);
   const lastTickRef = useRef(Date.now());
   const lastSaveRef = useRef(Date.now());
+  const lastEventCheckPlayTime = useRef(-1);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -105,8 +106,10 @@ export function useGameLoop() {
       // 多元宇宙系统：探索进度更新
       updateMultiverseExploration(effectiveDelta);
 
-      // 随机事件触发（每10秒检查一次）
-      if (Math.floor(state.playTime) % 10 === 0) {
+      // 随机事件触发（每10秒检查一次，避免playTime=0时触发和同一窗口重复触发）
+      const currentPlayTimeFloor = Math.floor(state.playTime);
+      if (currentPlayTimeFloor > 0 && currentPlayTimeFloor % 10 === 0 && currentPlayTimeFloor !== lastEventCheckPlayTime.current) {
+        lastEventCheckPlayTime.current = currentPlayTimeFloor;
         triggerRandomEvent();
         checkFestivalEvents();
       }

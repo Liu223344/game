@@ -251,7 +251,7 @@ export function CipherPanel() {
                     </span>
                   ))}
                   {selectedDoc.knownChars.length === 0 && (
-                    <span className="text-xs text-ancient-500">尚无</span>
+                    <span className="text-xs text-ancient-400">尚无</span>
                   )}
                 </div>
               </div>

@@ -128,7 +128,7 @@ export function WorldMapPanel() {
         <div key={group.dimension}>
           <h3 className="text-lg font-display text-ancient-200 mb-3 flex items-center gap-2">
             <span>{group.info.icon}</span> {group.info.label}维度
-            <span className="text-xs text-ancient-500">
+            <span className="text-xs text-ancient-400">
               ({group.territories.filter((t) => getTerritoryState(t.id)?.owned).length}/
               {group.territories.length})
             </span>
@@ -365,7 +365,7 @@ function TerritoryCard({
                       >
                         <span className="text-lg">{def.icon}</span>
                         <span className="flex-1 text-ancient-200">{def.name}</span>
-                        <span className="text-ancient-500">
+                        <span className="text-ancient-400">
                           ({formatNumber(troop.count)})
                         </span>
                         <input
