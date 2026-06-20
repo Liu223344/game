@@ -189,7 +189,7 @@ export function getCurrentEra(): string {
   if (techs.length === 0) return '石器时代';
 
   // 按时代排序，取最后一个
-  const eraOrder = ['石器时代', '青铜时代', '铁器时代', '火药时代', '蒸汽时代', '电力时代', '核能时代', '信息时代', '太空时代', '未来时代', '因果时代'];
+  const eraOrder = ['石器时代', '青铜时代', '铁器时代', '火药时代', '蒸汽时代', '电力时代', '核能时代', '信息时代', '太空时代', '未来时代', '因果律时代'];
 
   let currentEra = '石器时代';
   for (const tech of techs) {

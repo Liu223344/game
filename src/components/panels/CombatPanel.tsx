@@ -7,6 +7,7 @@ import { executeBattle } from '@/game/systems/combatSystem';
 import { RESOURCE_INFO, RARE_RESOURCE_INFO } from '@/utils/constants';
 import { formatNumber } from '@/utils/format';
 import { ProgressBar } from '@/components/ui/ProgressBar';
+import { BattleAnimation } from '@/components/visual/BattleAnimation';
 import { motion, AnimatePresence } from 'framer-motion';
 import type {
   EnemyDef,
@@ -53,6 +54,7 @@ export function CombatPanel() {
   const [selectedEnemyId, setSelectedEnemyId] = useState<string | null>(null);
   const [deployCounts, setDeployCounts] = useState<Record<string, number>>({});
   const [lastResult, setLastResult] = useState<BattleResult | null>(null);
+  const [animationResult, setAnimationResult] = useState<BattleResult | null>(null);
 
   // 计算军队总战力
   const armyPower = (() => {
@@ -108,6 +110,7 @@ export function CombatPanel() {
     }
     const result = executeBattle(selectedEnemy.id, deployed);
     setLastResult(result);
+    setAnimationResult(result); // 触发全屏战斗动画
     // 战斗后重置派遣数量为剩余兵力
     const remaining: Record<string, number> = {};
     for (const t of useGameStore.getState().troops) {
@@ -289,6 +292,12 @@ export function CombatPanel() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* 全屏战斗动画 */}
+      <BattleAnimation
+        result={animationResult}
+        onComplete={() => setAnimationResult(null)}
+      />
     </div>
   );
 }

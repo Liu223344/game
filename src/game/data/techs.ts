@@ -363,6 +363,20 @@ export const TECHS: Record<string, TechDef> = {
     historicalEvent: '1953年DNA双螺旋结构发现，2003年人类基因组计划完成',
     knowledge: '生物技术包括基因编辑、合成生物学等，CRISPR使基因编辑变得精准廉价',
   },
+  ecology: {
+    id: 'ecology',
+    name: '生态学',
+    description: '理解生态系统，减少发展对环境的负面影响',
+    icon: '🌿',
+    cost: 13000,
+    prerequisites: ['biotech'],
+    unlocks: {
+      mechanics: ['ecologyProtection'],
+    },
+    era: '信息时代',
+    historicalEvent: '1962年蕾切尔·卡森《寂静的春天》开启现代环保运动',
+    knowledge: '生态学研究生物与环境关系，可持续发展理念源于此，过度开发的代价由此被认识',
+  },
 
   // ============ 太空时代 ============
   spaceFlight: {
