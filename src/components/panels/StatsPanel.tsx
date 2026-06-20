@@ -9,7 +9,7 @@ import { getCultureLevel } from '@/game/systems/cultureSystem';
 import { getDiplomacySummary } from '@/game/systems/diplomacySystem';
 import { getMultiverseProgress } from '@/game/systems/multiverseSystem';
 import { getCipherStats } from '@/game/systems/cipherSystem';
-import { SEASON_INFO, WEATHER_INFO } from '@/utils/constants';
+import { SEASON_INFO, WEATHER_INFO, RESOURCE_INFO, RARE_RESOURCE_INFO } from '@/utils/constants';
 
 export function StatsPanel() {
   const playTime = useGameStore((state) => state.playTime);
@@ -68,7 +68,11 @@ export function StatsPanel() {
           <h3 className="text-royal-300 font-display mb-3">资源总量</h3>
           <div className="space-y-2 text-sm">
             {Object.entries(resources).map(([key, value]) => (
-              <StatRow key={key} label={key} value={value.toFixed(0)} />
+              <StatRow
+                key={key}
+                label={RESOURCE_INFO[key as keyof typeof RESOURCE_INFO]?.name || RARE_RESOURCE_INFO[key as keyof typeof RARE_RESOURCE_INFO]?.name || key}
+                value={value.toFixed(0)}
+              />
             ))}
           </div>
         </div>

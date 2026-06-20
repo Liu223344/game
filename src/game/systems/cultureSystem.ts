@@ -16,7 +16,7 @@ export function calculateCultureGain(state: GameState): number {
   // 奇观加成
   state.wonders.forEach((w) => {
     if (!w.built) return;
-    const cultureWonders = ['great_library', 'hanging_gardens', 'statue_of_zeus', 'sistine_chapel'];
+    const cultureWonders = ['greatLibrary', 'hangingGardens', 'hagiaSophia'];
     if (cultureWonders.includes(w.defId)) {
       gain += 2;
     }

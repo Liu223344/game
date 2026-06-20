@@ -28,8 +28,8 @@ export function calculateEcologyImpact(state: GameState): number {
     }
   });
 
-  // 奇观加成：神圣树林等恢复生态
-  const ecoWonders = ['hanging_gardens', 'sacred_grove'];
+  // 奇观加成：空中花园恢复生态
+  const ecoWonders = ['hangingGardens'];
   state.wonders.forEach((w) => {
     if (w.built && ecoWonders.includes(w.defId)) {
       impact += 5; // 每个生态奇观+5

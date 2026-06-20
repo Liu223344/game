@@ -36,10 +36,7 @@ export function CipherPanel() {
 
   const handleGuess = () => {
     if (!selectedDoc || !selectedCipherChar || !guessInput) return;
-    const success = guessChar(selectedDoc.id, selectedCipherChar, guessInput);
-    if (success) {
-      useGameStore.getState(); // 刷新状态
-    }
+    guessChar(selectedDoc.id, selectedCipherChar, guessInput);
     setGuessInput('');
     setSelectedCipherChar(null);
   };

@@ -314,7 +314,7 @@ function WonderCard({
             <div className="flex justify-between text-xs mb-1">
               <span className="text-ancient-400">建造进度</span>
               <span className="text-blue-400 font-mono">
-                {formatTime(wonder.buildTime * (1 - state.buildProgress))} 剩余
+                {formatTime(Math.max(0, wonder.buildTime * (1 - state.buildProgress)))} 剩余
               </span>
             </div>
             <ProgressBar

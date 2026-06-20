@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { BattleResult } from '@/game/types';
 
 interface BattleAnimationProps {
@@ -10,17 +10,20 @@ interface BattleAnimationProps {
 // 战斗动画组件 - 显示战斗结果动画
 export function BattleAnimation({ result, onComplete }: BattleAnimationProps) {
   const [show, setShow] = useState(false);
+  // 用 ref 保存最新的 onComplete，避免父组件重渲染导致定时器被重置
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
 
   useEffect(() => {
     if (result) {
       setShow(true);
       const timer = setTimeout(() => {
         setShow(false);
-        onComplete();
+        onCompleteRef.current();
       }, 2500);
       return () => clearTimeout(timer);
     }
-  }, [result, onComplete]);
+  }, [result]);
 
   return (
     <AnimatePresence>

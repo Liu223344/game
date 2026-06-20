@@ -6,7 +6,7 @@ import type { GameState, UniverseType } from '@/game/types';
 // 检查多元宇宙解锁条件
 export function checkMultiverseUnlock(state: GameState): boolean {
   // 需要研究因果律时代终极科技
-  const hasCausalityTech = state.tech.researched.includes('causality_weapon');
+  const hasCausalityTech = state.tech.researched.includes('causalityWeapon');
   return hasCausalityTech;
 }
 

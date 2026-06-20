@@ -9,7 +9,7 @@ export function calculateRulerLifespan(state: GameState): number {
   let lifespan = RULER_BASE_LIFESPAN;
 
   // 科技加成：医学相关科技每项+3年
-  const medicalTechs = ['medicine', 'anatomy', 'genetics', 'longevity'];
+  const medicalTechs = ['biotech', 'geneticEngineering', 'mindUpload'];
   medicalTechs.forEach((tech) => {
     if (state.tech.researched.includes(tech)) {
       lifespan += 3;
@@ -17,7 +17,7 @@ export function calculateRulerLifespan(state: GameState): number {
   });
 
   // 奇观加成：某些奇观延长寿命
-  const lifeWonders = ['fountain_of_youth', 'pyramid', 'time_machine'];
+  const lifeWonders = ['pyramid', 'timeMachine'];
   state.wonders.forEach((w) => {
     if (w.built && lifeWonders.includes(w.defId)) {
       lifespan += 5;

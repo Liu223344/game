@@ -46,7 +46,8 @@ export function generateCipherDocument(difficulty: 'easy' | 'medium' | 'hard' = 
     .map((c) => {
       const lower = c.toLowerCase();
       if (cipherMap[lower]) {
-        return c === lower ? cipherMap[lower] : cipherMap[lower];
+        // 保留大小写：大写字母对应密文也需大写
+        return c === lower ? cipherMap[lower] : cipherMap[lower].toUpperCase();
       }
       return c;
     })
